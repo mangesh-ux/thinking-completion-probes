@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "protocol": "natural-thinking-completion-regeneration-v1",
+  "dataset": {
+    "id": "zwhe99/DeepMath-103K", "revision": "5cf055d1fe3d7a2eb19719ac020211469736ae44", "split": "train",
+    "selection_seed": 20260929
+  },
+  "model": {
+    "id": "Qwen/Qwen3-1.7B", "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e", "tokenizer_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "dtype": "bfloat16", "device": "cuda:0",
+    "num_hidden_layers": 28, "hidden_size": 2048
+  },
+  "prompt": {
+    "template": "Solve the following mathematics problem. Work through the reasoning carefully.\nAfter the thinking section, give only a concise final answer in exactly one\n\\boxed{...} expression, with no explanation after the box.\n\nProblem:\n{problem}",
+    "enable_thinking": true, "add_generation_prompt": true
+  },
+  "generation": {
+    "max_new_tokens": 4096, "do_sample": true, "temperature": 0.6, "top_p": 0.95, "top_k": 20, "min_p": 0.0,
+    "seed_root": 20260929, "rollout_indices": [0, 1, 2, 3, 4, 5]
+  },
+  "readout": {"positions": [128, 256, 512], "cue": "</think>\n\n", "max_new_tokens": 64, "do_sample": false},
+  "activation": {"position": 512, "layers": 28, "hidden_size": 2048, "dtype": "bfloat16", "input": "prompt-plus-exact-prefix-no-cue", "representation": "post-block-final-position-before-final-norm"},
+  "splits": {"seed": 20260930, "train_per_difficulty": 48, "validation_per_difficulty": 16, "test_per_difficulty": 16, "generate": ["train", "validation"]},
+  "runtime": {
+    "expected_versions": {"python": "3.12.3", "torch": "2.11.0+cu128", "transformers": "4.52.4", "datasets": "4.3.0",
+    "huggingface_hub": "0.36.2", "accelerate": "1.12.0", "safetensors": "0.4.3"}
+  },
+  "local_files_only": false,
+  "note": "Regenerates only measurements needed for the completed token-512 forecast, not all five original activation coordinates or correctness labels. Fresh stochastic outcomes need not equal historical outcomes."
+}

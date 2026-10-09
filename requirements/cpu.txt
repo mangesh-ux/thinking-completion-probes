@@ -1,0 +1,6 @@
+# Recorded scientific CPU stack. Use Python 3.12.3 for historical reproduction.
+numpy==2.2.6
+scipy==1.14.0
+scikit-learn==1.5.1
+joblib==1.4.2
+threadpoolctl==3.5.0

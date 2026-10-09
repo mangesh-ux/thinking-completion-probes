@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "artifact_id": "completion-forecasting-public-v1",
+  "question": "Natural thinking completion within 4096 tokens given an available 512-token prefix",
+  "status": "EXPLORATORY_ORIGINAL_VALIDATION_HELDOUT",
+  "original_recovery_status": "NON_EVALUABLE",
+  "original_test_used": false,
+  "new_gpu_hours_for_historical_pivot": 0,
+  "support": {
+    "train": {"rows": 576, "problems": 96, "positive_rows": 151, "negative_rows": 425, "mixed_problems": 46},
+    "validation": {"rows": 192, "problems": 32, "positive_rows": 67, "negative_rows": 125, "mixed_problems": 17}
+  },
+  "selection": {"layer_zero_based": 15, "C": 0.001, "candidate_configurations": 128, "failures": 0},
+  "metrics": {
+    "A": {"problem_weighted_log_loss_nats": 0.6605598170489764, "problem_weighted_brier": 0.23293328558455692, "problem_weighted_pr_auc_average_precision": 0.4591387384227247, "problem_weighted_roc_auc": 0.5906268656716418},
+    "B": {"problem_weighted_log_loss_nats": 0.6608840257276238, "problem_weighted_brier": 0.23306792702862866, "problem_weighted_pr_auc_average_precision": 0.4498313601319446, "problem_weighted_roc_auc": 0.6053731343283583},
+    "Blex": {"problem_weighted_log_loss_nats": 0.6687219480705601, "problem_weighted_brier": 0.2364434776009777, "problem_weighted_pr_auc_average_precision": 0.38256653515527655, "problem_weighted_roc_auc": 0.5666865671641791},
+    "C": {"problem_weighted_log_loss_nats": 0.5940240088807938, "problem_weighted_brier": 0.20566322905997078, "problem_weighted_pr_auc_average_precision": 0.639765563758574, "problem_weighted_roc_auc": 0.7379104477611941},
+    "Clex": {"problem_weighted_log_loss_nats": 0.613427060628009, "problem_weighted_brier": 0.21411206925987591, "problem_weighted_pr_auc_average_precision": 0.5414794347799252, "problem_weighted_roc_auc": 0.7053134328358209},
+    "TRAIN_prevalence": {"problem_weighted_log_loss_nats": 0.6651238316221826, "problem_weighted_brier": 0.2347216194058642, "problem_weighted_pr_auc_average_precision": 0.3489583333333333, "problem_weighted_roc_auc": 0.5}
+  },
+  "paired_comparisons": {
+    "Clex_vs_Blex": {"mean_problem_log_loss_improvement_nats": 0.05529488744255122, "problem_cluster_bootstrap_95_percentile_ci": [0.02115213914469341, 0.08882951082046793]},
+    "C_vs_B": {"mean_problem_log_loss_improvement_nats": 0.06686001684683007, "problem_cluster_bootstrap_95_percentile_ci": [0.024944614150354497, 0.10754563294782608]},
+    "Blex_vs_B": {"mean_problem_log_loss_improvement_nats": -0.007837922342936284, "problem_cluster_bootstrap_95_percentile_ci": [-0.03635030845646238, 0.02022322348197999]}
+  },
+  "matched_control": {
+    "matched_problem_count": 17,
+    "Blex_concordance": 0.4047385620915032,
+    "Clex_concordance": 0.5357843137254903,
+    "paired_concordance_difference": 0.13104575163398693,
+    "difference_bootstrap_95_percentile_ci": [0.004399509803921574, 0.26830065359477123]
+  },
+  "bootstrap": {"resamples": 2000, "seed": 20261008, "valid_resamples": 2000},
+  "source_sha256": {
+    "public_result": "b45f10622d92cc66b69617c70f2a9b449f532675bb1eadbd113389a4de6a31a8",
+    "independent_verification": "cfb5a07e1f66e8811ad532bd4483b165dcbbcd1f38b5c79ab877a1e34b100603",
+    "historical_protocol": "c9c63d608f1456b453ffccf79885c021c80acd18ee0401c68a1ae7220873f0eb",
+    "historical_analysis": "9a43b2c416cd7094745892b857804706c27c960e4f68c18e458835efacb723ea"
+  },
+  "uncertainty": "Problem-cluster intervals condition on fixed trained models; no training/selection uncertainty or secondary multiplicity adjustment."
+}

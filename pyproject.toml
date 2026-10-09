@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools==70.3.0", "wheel==0.44.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thinking-completion-probes"
+version = "1.0.0"
+description = "Reproducible, exploratory Qwen3 reasoning-state completion forecasting"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = {file = "LICENSE"}
+authors = [{name = "Mangesh (mangesh-ux)"}]
+dependencies = []
+
+[project.optional-dependencies]
+cpu = [
+  "numpy==2.2.6", "scipy==1.14.0", "scikit-learn==1.5.1",
+  "joblib==1.4.2", "threadpoolctl==3.5.0",
+]
+dev = ["pytest==9.0.1"]
+gpu = [
+  "torch==2.11.0", "transformers==4.52.4", "datasets==4.3.0",
+  "huggingface-hub==0.36.2", "accelerate==1.12.0", "safetensors==0.4.3",
+  "PyYAML==6.0.1", "pyarrow==25.0.1",
+]
+
+[project.scripts]
+tcp = "thinking_completion.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+thinking_completion = ["reference/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[project.urls]
+Repository = "https://github.com/mangesh-ux/thinking-completion-probes"
+Historical-study = "https://github.com/mangesh-ux/reasoning-recovery-probes/tree/27ecb795ea8194a5fe3c3d603a6b775e7f705088"

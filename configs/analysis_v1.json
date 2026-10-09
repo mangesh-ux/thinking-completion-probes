@@ -1,0 +1,15 @@
+{
+  "protocol_id": "completion-forecasting-public-reproduction-v1",
+  "checkpoint": 512, "horizon": 4096,
+  "target": "first_natural_close_within_horizon_given_available_prefix",
+  "fit_partition": "original_train", "heldout_partition": "original_validation_exploratory", "original_test_used": false,
+  "models": ["A", "B", "Blex", "C", "Clex"],
+  "C_grid": [0.001, 0.01, 0.1, 1.0], "folds": 5,
+  "activation_layers_zero_based": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],
+  "solver": "lbfgs", "max_iter": 10000, "tol": 0.000001, "random_state": 0,
+  "equal_problem_weights": true, "train_variance_threshold": 1e-12,
+  "primary_comparison": "Blex_log_loss_minus_Clex_log_loss",
+  "bootstrap_resamples": 2000, "bootstrap_seed": 20261008,
+  "historical_selected_layer": 15, "historical_selected_C": 0.001,
+  "historical_protocol_sha256": "c9c63d608f1456b453ffccf79885c021c80acd18ee0401c68a1ae7220873f0eb"
+}
