@@ -44,8 +44,6 @@ before token 512 and EOS/other termination without closure are excluded and
 retained. This endpoint does not establish correct answers, wrong-to-correct
 recovery, intervention effects, or inference savings.
 
-## APIs and ordering
-
 ## Hardware and installation
 
 The historical collection used an A40-class 48 GB GPU. The new generation

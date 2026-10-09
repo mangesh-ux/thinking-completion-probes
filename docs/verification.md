@@ -46,4 +46,27 @@ Future real-model generation, CUDA integration, model downloads and the
 and generation/extraction orchestration tests use synthetic CPU fixtures, never
 a model or GPU. Original source evidence and conclusions were left unchanged;
 no original TEST outcomes were loaded or collected, and no paid resources were
-started. Public CI and fresh-download results are recorded after publication.
+started.
+
+## Public delivery checks
+
+The initial public source commit is
+`d71422e0f59fddcbff8960c876201301b8be4b4c`, tagged `v1.0.0`.
+Both its [branch CI run](https://github.com/mangesh-ux/thinking-completion-probes/actions/runs/37889090814)
+and [tag CI run](https://github.com/mangesh-ux/thinking-completion-probes/actions/runs/37889100658)
+completed successfully.
+
+The [public numerical release](https://github.com/mangesh-ux/thinking-completion-probes/releases/tag/v1.0.0)
+uploaded all 83,543,193 archive bytes; GitHub's recorded digest matches the
+pinned archive SHA256 above. A fresh clone built a distributable wheel, installed
+it without numerical dependencies in a separate empty environment, and passed
+the installed standard-library report check. That installed package downloaded
+the public archive into a fresh directory and verified its archive/manifest
+checksums. The cloned source then verified bundle integrity and restored models
+using the pinned CPU environment: all predictions and 39 statistics again
+matched exactly (maximum absolute error 0.0), with no historical private-workspace
+dependency. This delivery check did not repeat model fitting or collect new data.
+
+A final read-only check reconfirmed all five authoritative original input hashes
+and unchanged historical Git HEAD/remote. The new public repository is separate;
+the existing untracked machine-specific helper remains private and uncommitted.
