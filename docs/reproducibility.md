@@ -1,5 +1,15 @@
 # Reproducibility levels
 
+The same five numerical release files are also available from
+[Hugging Face](https://huggingface.co/datasets/mangesh-ux/thinking-completion-probes).
+They retain their GitHub-release byte hashes; this is a mirror, not a new dataset,
+split, result or experiment. The [dataset card and CPU example](huggingface/README.md#cpu-reproduction)
+download an immutable Hub revision, authenticate the independently pinned manifest,
+and run the existing saved-model verification. Full CPU refitting is an explicit
+optional step. NPZ tensors are loaded with NumPy, not `datasets.load_dataset`.
+The [Hugging Face publication receipt](huggingface-publication.json) pins the
+uploaded revision and records the fresh anonymous download/verification checks.
+
 | Command | What it exercises | What it does not establish |
 |---|---|---|
 | `tcp verify` | Standard-library consistency of the bundled historical report | Data integrity, refitting or GPU correctness |

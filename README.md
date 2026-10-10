@@ -3,6 +3,10 @@
 Can a small linear probe of a reasoning model's internal state forecast whether
 its ongoing thinking will naturally finish before a token limit?
 
+Dataset: [mangesh-ux/thinking-completion-probes on Hugging Face](https://huggingface.co/datasets/mangesh-ux/thinking-completion-probes)
+— the unchanged verified numerical release, with a dataset card, checksums and
+a [CPU verification/reproduction example](docs/huggingface/README.md#cpu-reproduction).
+
 This repository provides a reproducible **exploratory study**, not a deployed
 early-exit method. At a 512-token reasoning checkpoint in Qwen3-1.7B, adding one
 layer's residual activation to confidence and lexical controls improved held-out
