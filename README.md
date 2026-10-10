@@ -10,6 +10,27 @@ completion-forecast log loss by **0.0553 nats per problem** (problem-cluster 95%
 interval **0.0212–0.0888**). It did **not** demonstrate correct-answer recovery,
 causal reasoning understanding, or inference-cost savings.
 
+## Why this matters
+
+Thinking-phase completion is a different question from answer correctness.
+Forecasting whether still-open reasoning will close before a token cap could
+help researchers characterize truncation and investigate how models use their
+reasoning budgets. It also provides a measurable endpoint for future
+compute-allocation or stopping-policy studies. Here we test only whether
+activations improve that forecast beyond the specified controls—not how many
+tokens remain, or whether stopping would preserve accuracy or save compute.
+
+```mermaid
+flowchart LR
+    Qwen["Qwen3-1.7B<br/>Still-open thinking prefix"] --> Activations["Generated token 512<br/>Residual activations"]
+    Activations --> Probe["Linear probe<br/>L2 logistic regression"]
+    Probe --> Forecast["Completion forecast<br/>Natural close within 4096 generated tokens"]
+```
+
+The primary probe combines activations with confidence and lexical controls;
+its layer and regularization are selected on TRAIN only. Completion is not
+correctness.
+
 ## Two questions, two outcomes
 
 The original experiment asked whether activations predict **wrong→correct answer
